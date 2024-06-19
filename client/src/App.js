@@ -3,7 +3,7 @@ import InputForm from './InputForm';
 import StoreInputForm from './StoreInputForm';
 import DocumentsDisplay from './DocumentsDisplay';
 import ResponseDisplay from './ResponseDisplay';
-import Chatbot from './components/Chatbot';
+import Chatbot from './Chatbot';
 import axios from 'axios';
 import './App.css';
 
