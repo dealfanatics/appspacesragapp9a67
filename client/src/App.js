@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import InputForm from './InputForm';
 import StoreInputForm from './StoreInputForm';
-import DocumentsDisplay from './DocumentsDisplay';
-import ResponseDisplay from './ResponseDisplay';
 import Chatbot from './Chatbot';
 import axios from 'axios';
 import './App.css';
@@ -16,24 +13,8 @@ if (location.host === 'localhost:3000') {
 }
 
 function App() {
-  const [response, setResponse] = useState('');
-  const [documents, setDocuments] = useState([]);
   const [storeStatus, setStoreStatus] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
   const [apiKey, setApiKey] = useState(''); // State to hold the API key
-
-  const handleSearchSubmit = async (text) => {
-    setIsLoading(true);
-    try {
-      const result = await axios.post(`${baseHostUrl}/retrieve-and-generate-response/`, { text, apiKey });
-      setResponse(result.data.response);
-      setDocuments(result.data.documents);
-    } catch (error) {
-      console.error('Error fetching data: ', error);
-      setResponse('Failed to fetch data');
-    }
-    setIsLoading(false);
-  };
 
   const handleStoreSubmit = async (text) => {
     try {
